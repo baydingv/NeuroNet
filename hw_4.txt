@@ -1,0 +1,90 @@
+1. контрольный расчет (как на занятии)
+2. попробовал тупо взять 2 эпохи вместо 1 - ожидания оправдались :-) на тесте точность с 0.438 поднялась до 0.479
+3. вернул 1 эпоху (далее с ней все и считал), но убрал data_augmentation, чтобы понять её роль:
+   тест поднялся до 0.452 (с 0.438 пункт 1), походу на данном наборе данных data_augmentation мешает процессу
+4. вернул data_augmentation=True (далее с ней все и считал) и экспериментировал с оптимайзерами
+   RMSprop - 0.438 (в контрольном)
+   Adagrad - 0.534
+   Adam    - 0.554
+   SGD     - 0.437
+   
+ Выводы: есть зависимость от оптимайзера, к этой задаче лучше всего подошел Adam,
+         можно еще убрать data_augmentation, а потом взять эпох - сколько сможешь подождать...
+-------------------------------------------------------------------------
+epochs = 1;
+data_augmentation = True; 
+opt = keras.optimizers.RMSprop(lr=0.0001, decay=1e-6)
+.....
+Epoch 1/1
+1563/1563 [==============================] - 263s 169ms/step - loss: 1.8860 - accuracy: 0.3069 - val_loss: 1.5613 - val_accuracy: 0.4388
+сохранить обученную модель как /content/saved_models/keras_cifar10_trained_model.h5 
+10000/10000 [==============================] - 11s 1ms/step
+Test loss: 1.5612852062225342
+Test accuracy: 0.43880000710487366
+
+-------------------------------------------------------------------------
+epochs = 2; 
+data_augmentation = True; 
+opt = keras.optimizers.RMSprop(lr=0.0001, decay=1e-6)
+.....
+Epoch 1/2
+1563/1563 [==============================] - 263s 168ms/step - loss: 1.8686 - accuracy: 0.3132 - val_loss: 1.5860 - val_accuracy: 0.4221
+Epoch 2/2
+1563/1563 [==============================] - 261s 167ms/step - loss: 1.5735 - accuracy: 0.4219 - val_loss: 1.4316 - val_accuracy: 0.4791
+сохранить обученную модель как /content/saved_models/keras_cifar10_trained_model.h5 
+10000/10000 [==============================] - 11s 1ms/step
+Test loss: 1.4315526021957397
+Test accuracy: 0.47909998893737793
+
+-------------------------------------------------------------------------
+epochs = 1
+data_augmentation = False
+opt = keras.optimizers.RMSprop(lr=0.0001, decay=1e-6)
+.....
+Epoch 1/1
+50000/50000 [==============================] - 245s 5ms/step - loss: 1.8039 - accuracy: 0.3387 - val_loss: 1.5075 - val_accuracy: 0.4528
+сохранить обученную модель как /content/saved_models/keras_cifar10_trained_model.h5 
+10000/10000 [==============================] - 11s 1ms/step
+Test loss: 1.5075142616271973
+Test accuracy: 0.4528000056743622
+
+-------------------------------------------------------------------------
+epochs = 1
+data_augmentation = True
+opt = keras.optimizers.Adagrad(learning_rate=0.01)
+.....
+Epoch 1/1
+1563/1563 [==============================] - 259s 166ms/step - loss: 1.6496 - accuracy: 0.3909 - val_loss: 1.2706 - val_accuracy: 0.5344
+сохранить обученную модель как /content/saved_models/keras_cifar10_trained_model.h5 
+10000/10000 [==============================] - 11s 1ms/step
+Test loss: 1.2706124820709228
+Test accuracy: 0.5343999862670898
+
+-------------------------------------------------------------------------
+epochs = 1
+data_augmentation = True
+opt = keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, amsgrad=False
+.....
+Epoch 1/1
+1563/1563 [==============================] - 266s 170ms/step - loss: 1.6152 - accuracy: 0.4057 - val_loss: 1.2375 - val_accuracy: 0.5546
+сохранить обученную модель как /content/saved_models/keras_cifar10_trained_model.h5 
+10000/10000 [==============================] - 11s 1ms/step
+Test loss: 1.2375281028747558
+Test accuracy: 0.5546000003814697
+
+-------------------------------------------------------------------------
+epochs = 1
+data_augmentation = True
+opt = keras.optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+.....
+Epoch 1/1
+1563/1563 [==============================] - 253s 162ms/step - loss: 1.8849 - accuracy: 0.2987 - val_loss: 1.5319 - val_accuracy: 0.4371
+сохранить обученную модель как /content/saved_models/keras_cifar10_trained_model.h5 
+10000/10000 [==============================] - 11s 1ms/step
+Test loss: 1.5319083393096924
+Test accuracy: 0.43709999322891235
+
+
+2. Судя по всему, задачи в последовательности:  MNIST, cifar10, CIFAR100 и IMAGENET 
+будут требовать больше (слева - направо возрастают требования) размеры исходного слоя,
+и соответственно больше число блоков: Conv2D+Activation+MaxPooling2D
