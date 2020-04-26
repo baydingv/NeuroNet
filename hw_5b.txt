@@ -1,0 +1,68 @@
+Лучшие строки из базового варианта:
+
+143089/143089 [==============================] - 37s 256us/step - loss: 1.1088
+Генерация из посева: irl,' said
+irl,' said the mock turtle seemest to herself in the little golden key on the somp of the sold ears of the 
+Итерация #: 22
+Epoch 1/1
+143089/143089 [==============================] - 37s 256us/step - loss: 1.0964
+Генерация из посева: ning to fe
+ning to feel what i can't have been that it was a little best use i shall said the gryphon alice that it was
+Итерация #: 24
+Epoch 1/1
+143089/143089 [==============================] - 37s 257us/step - loss: 1.0719
+Генерация из посева: keep herse
+keep herself round the room of the court, when the three gardeners were no to her head
+
+
+
+*************************************************************************************
+Взял по 2 эпохи на итерацию, получилось лучше:
+
+Итерация #: 4
+Epoch 1/2
+143089/143089 [==============================] - 36s 255us/step - loss: 1.3731
+Epoch 2/2
+143089/143089 [==============================] - 36s 255us/step - loss: 1.3392
+Генерация из посева:  folded he
+ folded her hand of the sard alice, `i don't know what i shall have you mane of the rabbit said to herself to ==================================================
+
+Итерация #: 6
+Epoch 1/2
+143089/143089 [==============================] - 36s 255us/step - loss: 1.2584
+Epoch 2/2
+143089/143089 [==============================] - 36s 254us/step - loss: 1.2361
+Генерация из посева:  happened 
+ happened in a long alice was going to herself, `i should be a little beating of the sided the mock turtle sai==================================================
+
+Итерация #: 12
+Epoch 1/2
+143089/143089 [==============================] - 37s 257us/step - loss: 1.0651
+Epoch 2/2
+143089/143089 [==============================] - 37s 256us/step - loss: 1.0535
+Генерация из посева: that ever 
+that ever to the gryphon replied resaing!' `i won't interrupted the dormouse shook its head to say that she wa==================================================
+
+Итерация #: 19
+Epoch 1/2
+143089/143089 [==============================] - 36s 255us/step - loss: 0.9423
+Epoch 2/2
+143089/143089 [==============================] - 37s 256us/step - loss: 0.9362
+Генерация из посева: act.' alic
+act.' alice was not it would be like that it was to her hands and found herself for it in a distoned.  `i migh==================================================
+
+Итерация #: 21
+Epoch 1/2
+143089/143089 [==============================] - 36s 254us/step - loss: 0.9172
+Epoch 2/2
+143089/143089 [==============================] - 37s 256us/step - loss: 0.9113
+Генерация из посева: n talking:
+n talking:  but she was a little sistert, and said to herself, `if you know the way of a great hurry, and she ==================================================
+
+Итерация #: 23
+Epoch 1/2
+143089/143089 [==============================] - 36s 252us/step - loss: 0.8951
+Epoch 2/2
+143089/143089 [==============================] - 36s 254us/step - loss: 0.8910
+Генерация из посева: ne about, 
+ne about, and the hatter. `it was a little golden key and the gryphon alice a till a tree on the mock turtle r==================================================
